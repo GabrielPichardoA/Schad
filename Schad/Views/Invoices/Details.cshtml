@@ -1,0 +1,107 @@
+﻿@model IEnumerable<SchadModels.Models.InvoiceDetail>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles de Factura</h2>
+
+@Html.ActionLink("Crear nuevo detalle de factura", "CreateWithId/" + (int)@ViewBag.invoice.Id)
+
+<div id="detailContent">
+    <div class="container">
+        <div class="col-md-2">
+            <strong>Id de Cliente: </strong>@ViewBag.Invoice.Id
+        </div>
+        <div class="col-md-4">
+            <strong>Nombre de Cliente: </strong> @ViewBag.Invoice.Customer.CustName
+        </div>
+        <div class="col=md-6 text-right">
+            <strong>No. Factura: </strong> @ViewBag.Invoice.Id
+        </div>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Qty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalItbis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Qty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalItbis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+            </tr>
+        }
+        <tr>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+            <th>
+                @ViewBag.invoice.SubTotal
+            </th>
+            <th>
+                @ViewBag.invoice.Total
+            </th>
+        </tr>
+    </table>
+</div>
+
+<div class="container">
+    <div class="col-md-6">
+        <p>
+            @Html.ActionLink("Volver a la lista", "Index")
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <a onclick="ImprimeDiv()" style="cursor: pointer">Imprimir Detalle de factura</a>
+        </p>
+    </div>
+
+</div>
+
+<script>
+    function ImprimeDiv() {
+        var divToPrint = document.getElementById('detailContent');
+        var newWin = window.open('', 'Print-Window', 'width=100,height=100');
+        newWin.document.open();
+        newWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</body></html>');
+        newWin.document.close();
+        setTimeout(function () { newWin.close(); }, 10);
+    }
+</script>

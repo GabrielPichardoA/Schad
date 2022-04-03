@@ -1,0 +1,11 @@
+C:\Users\elgab\source\repos\Schad\SchadModels\bin\Debug\SchadModels.dll.config
+C:\Users\elgab\source\repos\Schad\SchadModels\bin\Debug\SchadModels.dll
+C:\Users\elgab\source\repos\Schad\SchadModels\bin\Debug\SchadModels.pdb
+C:\Users\elgab\source\repos\Schad\SchadModels\bin\Debug\EntityFramework.dll
+C:\Users\elgab\source\repos\Schad\SchadModels\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\elgab\source\repos\Schad\SchadModels\bin\Debug\EntityFramework.xml
+C:\Users\elgab\source\repos\Schad\SchadModels\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\elgab\source\repos\Schad\SchadModels\obj\Debug\SchadModels.csproj.CoreCompileInputs.cache
+C:\Users\elgab\source\repos\Schad\SchadModels\obj\Debug\SchadModels.csproj.CopyComplete
+C:\Users\elgab\source\repos\Schad\SchadModels\obj\Debug\SchadModels.dll
+C:\Users\elgab\source\repos\Schad\SchadModels\obj\Debug\SchadModels.pdb

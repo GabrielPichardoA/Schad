@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SchadModels.Models.CustomerType>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mantenimiento de Tipo de Cliente</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo tipo de cliente", "Create")
+</p>
+
+<div id="custTypeContent">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
+
+<div class="container">
+    <div class="col-md-12 text-center">
+        <p>
+            <a onclick="ImprimeDiv()" style="cursor: pointer">Imprimir Detalle de factura</a>
+        </p>
+    </div>
+
+</div>
+
+<script>
+    function ImprimeDiv() {
+        var divToPrint = document.getElementById('custTypeContent');
+        var newWin = window.open('', 'Print-Window', 'width=100,height=100');
+        newWin.document.open();
+        newWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</body></html>');
+        newWin.document.close();
+        setTimeout(function () { newWin.close(); }, 10);
+    }
+</script>
